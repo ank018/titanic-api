@@ -5,7 +5,7 @@ name: Build and Push Docker Image to ACR
 on:
   push:
     branches:
-      - main
+      - master  # Changed from 'main' to 'master'
 
 jobs:
   build-and-push:
