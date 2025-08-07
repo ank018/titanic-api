@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # .github/workflows/deploy.yml
 
 name: Build and Push Docker Image to ACR
@@ -30,36 +29,3 @@ jobs:
       - name: Push Docker image to ACR
         run: |
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/titanic-api:latest
-=======
-# .github/workflows/deploy.yml
-
-name: Build and Push Docker Image to ACR
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@v3
-
-      - name: Login to ACR
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
-          registry: ${{ secrets.ACR_LOGIN_SERVER }}
-
-      - name: Build and tag Docker image
-        run: |
-          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/titanic-api:latest .
-
-      - name: Push Docker image to ACR
-        run: |
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/titanic-api:latest
->>>>>>> 606f9a643b1792b094881c97cb98db2bd45a431d
